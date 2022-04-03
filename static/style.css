@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    height:100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.light-theme {
+    --nav: #e1e1e1;
+    --bgmain: #fafafa;
+    --bgside: #701a75;
+    --txt1: #000;
+    --txt2: #fff;
+}
+
+#main-container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#sidebar{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height:100%;
+    width: 20%;
+    background-color: var(--bgside);
+    color: var(--txt2);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#data-show, #disk-show{
+    height:100%;
+    width:80%;
+}
+
+.side-element {
+    display: flex;
+    font-size: 2rem;
+    text-align: left;
+    align-items: center;
+    width: 100%;
+    height:10%;
+    transition: all 0.2s ease-in;
+    background-color: var(--bgside);
+}
+
+.selected {
+    color: var(--txt1);
+    background-color: var(--bgmain);
+}
+
+#sidebar i {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.side-element:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+    transition: all 0.2s ease-in;
+}
+
+Nav {
+    height: 5%;
+    width: 100%; 
+    background-color: var(--nav);
+    display: flex;
+}
+
+Nav i {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#nav-container {
+    margin-left: 20px;
+}
+
+
+.nav-item {
+    position: relative;
+    padding: 20px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.75rem;
+    color: var(--txt1);
+    text-align: left;
+    cursor:pointer;
+}
+
+.nav-item i, h1 {
+    z-index: 100;
+}
+
+.nav-item:hover .squircle-overlay {
+    opacity: 100%;
+}
+
+.squircle-overlay {
+    position: absolute;
+    top: 10%;
+    height:100%;
+    width: 100%;
+    background-color: var(--bgmain);
+    opacity: 0;
+    border-radius: 8px;
+    transition: all 0.2s ease-in;
+}
+
+#myCanvas {
+    height: 60%;
+    width: 60%;
+    margin-top: 20px;
+}
+
+.title-page {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#desc {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.toggle-header, .toggle-header-disk {
+    overflow: auto;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    min-height: 95vh;
+    max-height: 95vh;
+    width: 100%;
+    color: var(--txt1);
+    background-color: var(--bgmain);
+}
+
+#canvas-div {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.diskNo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#disk-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.disk {
+    position: relative;
+    text-align: center;
+    padding: 40px 0px;
+    width: 30%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+}
+
+.working {
+    position: absolute;
+    right: 10%;
+    top: 30%;
+}
+
+.disk-btn {
+    background-color: #1e40af;
+    color: var(--txt2);
+    padding: 10px 12px;
+    margin: 5px 5px;
+    border-radius: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    border: none;
+    cursor: pointer
+}
+
+.disk-btn:hover {
+    filter: brightness(1.4);
+}

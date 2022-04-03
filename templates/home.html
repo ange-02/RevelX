@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>RevelX</title>
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/5b9510a705.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+  <body class="light-theme">
+
+    <div id="main-container">
+
+        <div id="sidebar">
+
+            <div class="side-element selected" id="capacity">
+                <i class="fa-solid fa-floppy-disk"></i>  
+                <p class="side-txt">Capacity</p>
+            </div>
+
+            <div class="side-element" id="disks">
+                <i class="fa-solid fa-database"></i>
+                <p class="side-txt">Disks</p>
+            </div>
+        </div>
+
+        <!--START OF RIGHT SIDE-->
+
+        <!--CAPACITY-->
+        <div id="data-show" class="menu">
+            <Nav>
+                <div id="space" class="nav-item">
+                    <div class="squircle-overlay"></div>
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <h1 id="nav-title" class="title">Capacity</h1>
+                </div>
+
+                <div id="performance" class="nav-item">
+                    <div class="squircle-overlay"></div>
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h1 id="nav-title" class="title">Performance</h1>
+                </div>
+
+                <div id="history" class="nav-item">
+                    <div class="squircle-overlay"></div>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <h1 id="nav-title" class="title">History</h1>
+                </div>
+            </Nav>
+            
+            <div id="data" class="toggle-header">
+                <h1 class="title-page">Available storage</h1>
+                <p id="desc">Chart representation for how much space is available vs space taken.</p>
+                <div id="canvas-div">
+                </div> 
+            </div>
+
+            <div id="perf-div" class="toggle-header">
+                <h1 class="title-page">Reads per second</h1>
+                <p id="desc">Chart representation for data reads per second.</p>
+                <canvas width="1000" height="700" id="perfCanvas"></canvas>
+            </div>
+
+            <div id="history-div" class="toggle-header">
+                <h1 class="title-page">Data history</h1>
+                <p id="desc">Chart representation for space taken by system over time.</p>
+            </div>
+
+        </div>
+
+
+
+            <!-- DISKS -->
+
+        <div id="disk-show" class="menu">
+            <Nav>
+
+                <div id="performance" class="nav-item">
+                    <div class="squircle-overlay"></div>
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h1 id="nav-title" class="title">Disks</h1>
+                </div>
+
+                <div id="history" class="nav-item">
+                    <div class="squircle-overlay"></div>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <h1 id="nav-title" class="title">History</h1>
+                </div>
+            </Nav>
+            
+            <div id="disks-page" class="toggle-header-disk">
+                <h1 class="title-page">System disks</h1>
+                <p id="disk-desc">All disks operational</p>
+                <div id="disk-div"></div> 
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var errs = "{{data.errz}}"
+        errs = errs.replaceAll('&#39', '')
+        errs = errs.replaceAll(',', '')
+        errs = errs.replaceAll(';', '')
+        errs = errs.replaceAll(']', '')
+        errs = errs.replaceAll('[', '')
+        errs = errs.replaceAll('disk', '')
+        errs = errs.replaceAll('.txt', '')
+        errs = errs.split(" ")
+        console.log(errs)
+    </script>
+    <script src="{{ url_for('static',filename='makeCharts.js') }}"></script>
+    <script src="{{ url_for('static',filename='navSelect.js') }}"></script>
+    <script src="{{ url_for('static',filename='populateDisks.js') }}"></script>
+    <script src="{{ url_for('static',filename='simulateFailure.js') }}"></script>
+    <script src="{{ url_for('static',filename='populatePerf.js') }}"></script>
+
+  </body>
+</html>
