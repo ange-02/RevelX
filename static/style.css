@@ -193,3 +193,7 @@ Nav i {
 .disk-btn:hover {
     filter: brightness(1.4);
 }
+
+#perfCanvas {
+    margin-left: 20px;
+}

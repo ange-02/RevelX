@@ -68,6 +68,8 @@
             <div id="history-div" class="toggle-header">
                 <h1 class="title-page">Data history</h1>
                 <p id="desc">Chart representation for space taken by system over time.</p>
+                <canvas width="1000" height="700" id="histCanvas"></canvas>
+
             </div>
 
         </div>
@@ -119,6 +121,7 @@
     <script src="{{ url_for('static',filename='populateDisks.js') }}"></script>
     <script src="{{ url_for('static',filename='simulateFailure.js') }}"></script>
     <script src="{{ url_for('static',filename='populatePerf.js') }}"></script>
+    <script src="{{ url_for('static',filename='populateHist.js') }}"></script>
 
   </body>
 </html>
