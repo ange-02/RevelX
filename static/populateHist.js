@@ -1,8 +1,8 @@
-const labels = [1, 2, 3, 4, 5, 6, 7];
+const labelsHist = [1, 2, 3, 4, 5, 6, 7];
 const dataHist = {
-  labels: labels,
+  labels: labelsHist,
   datasets: [{
-    label: 'My First Dataset',
+    label: 'Size History',
     data: [65, 59, 80, 81, 56, 55, 40],
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',
@@ -26,7 +26,7 @@ const dataHist = {
   }]
 };
 
-const config = {
+const configHist= {
     type: 'bar',
     data: dataHist,
     options: {
@@ -38,4 +38,4 @@ const config = {
     },
   };
 
-  chart = new Chart(document.getElementById("histCanvas"), config)
+  chart = new Chart(document.getElementById("histCanvas"), configHist)
