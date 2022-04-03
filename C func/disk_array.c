@@ -13,18 +13,18 @@ void update_rs_disk(disk_array_t *disk_array, long block){
   // for each disk
   for (int i = 0; i < disk_array->ndisks; i++) {
     // spwan a new process
-    // pid_t id = fork();
+    pid_t id = fork();
 
     // break if parent process
-    // if (id != 0)
-    //   continue;
+    if (id != 0)
+      continue;
     
     // read the disk block into memory
     blocks[i] = malloc(sizeof(char) * disk_array->block_size);
     disk_read(disk_array->disks[i], block, blocks[i]);
 
-    // if (id == 0)
-    //   break;
+    if (id == 0)
+      break;
   }
 
   printf("[update_rs_disk] calculating image...\n");
@@ -32,12 +32,12 @@ void update_rs_disk(disk_array_t *disk_array, long block){
   // for each byte
   for (int i = 0; i < disk_array->block_size; i++) {
     // spwan a new process
-    // pid_t id = fork();
+    pid_t id = fork();
 
     // skip if parent
-    // if (id != 0) {
-    //   continue;
-    // }
+    if (id != 0) {
+      continue;
+    }
 
     int result = 0;
 
@@ -49,9 +49,9 @@ void update_rs_disk(disk_array_t *disk_array, long block){
 
     image[i] = result;
 
-    // if (id == 0) {
-    //   break;
-    // }
+    if (id == 0) {
+      break;
+    }
   }
 
   printf("[update_rs_disk] image calculated as: %s\n", image);
@@ -125,7 +125,7 @@ bool disk_array_read(disk_array_t *disk_array, long address, char * buffer) {
   if (disk->working) {
     disk_read(disk, block, buffer);
   } else {
-    // recover_disk(disk_array, disk);
+    recover_disk(disk_array, disk);
     disk_read(disk, block, buffer);
   }
   
