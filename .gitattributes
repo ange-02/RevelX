@@ -2,4 +2,4 @@
 * text=auto
 *.py linguist-detectable=false
 *.exe linguist-detectable=false
-venv linguist-detectable=false
+Gemfile linguist-vendored
