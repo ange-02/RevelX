@@ -2,4 +2,4 @@
 * text=auto
 *.py linguist-detectable=false
 *.exe linguist-detectable=false
-venv/* linguist-vendored
+/venv/* linguist-vendored
